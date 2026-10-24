@@ -55,7 +55,16 @@ from bandit.core import test_properties as test
 @test.checks("Call")
 @test.test_id("B113")
 def request_without_timeout(context):
-    HTTP_VERBS = {"get", "options", "head", "post", "put", "patch", "delete"}
+    HTTP_VERBS = {
+        "get",
+        "options",
+        "head",
+        "post",
+        "put",
+        "patch",
+        "delete",
+        "request",
+    }
     HTTPX_ATTRS = {"request", "stream", "Client", "AsyncClient"} | HTTP_VERBS
     qualname = context.call_function_name_qual.split(".")[0]
 
